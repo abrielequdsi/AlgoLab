@@ -1,0 +1,25 @@
+.qs {
+  object-fit: contain;
+  left: 100px;
+}
+
+.qs__container {
+  height: 100px;
+  display: flex;
+  padding: 2px;
+  transform: rotate(180deg);
+  flex-direction: row-reverse;
+  padding-right: 1rem;
+  padding-left: 1rem;
+  justify-content: center;
+}
+
+.qs__pair {
+  width: 2.5rem;
+  display: inline-block;
+  margin: 0 1px;
+}
+
+.generate {
+  padding: 100px;
+}
