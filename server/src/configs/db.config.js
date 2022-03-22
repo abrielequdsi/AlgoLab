@@ -1,8 +1,7 @@
 module.exports = {
-  HOST: "localhost",
-  dialect: "mysql",
-  USER: "scenario_project",
-  PASSWORD: "123456",
-  DB: "algolab",
-  port: 5432,
+    HOST: "127.0.0.1",
+    dialect: "mysql",
+    USER: "root",
+    PASSWORD: "",
+    DB: "algolab_db",
 };
