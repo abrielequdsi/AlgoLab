@@ -9,6 +9,7 @@ const Op = db.Sequelize.Op;
 
 const register = async (req, res) => {
     try {
+        console.log(req.body);
         // Save User to Database
         const user = await User.create({
             username: req.body.username,
@@ -26,16 +27,20 @@ const register = async (req, res) => {
                 },
             });
             await user.setRoles(roles);
-            res.send({
+            res.status(201).json({
+                status: true,
                 message:
                     "User was registered successfully with specified roles!",
+                data: user,
             });
         } else {
             // user role = 1
             // If client doesn't specify role, assign to student
             await user.setRoles([1]);
-            res.send({
-                message: "User was registered successfully as Student!",
+            res.status(201).json({
+                status: true,
+                message: "User was registered successfully as a Student!",
+                data: user,
             });
         }
     } catch (err) {
@@ -79,12 +84,16 @@ const login = async (req, res) => {
             authorities.push("ROLE_" + roles[i].name.toUpperCase());
         }
 
-        res.status(200).send({
-            id: user.id,
-            username: user.username,
-            email: user.email,
-            roles: authorities,
-            accessToken: token,
+        res.status(200).json({
+            status: true,
+            message: "Login success!",
+            data: {
+                id: user.id,
+                username: user.username,
+                email: user.email,
+                roles: authorities,
+                accessToken: token,
+            },
         });
     } catch (error) {
         res.status(500).send({ message: err.message });

@@ -47,7 +47,11 @@ const codeRun = (req, res) => {
         // the codeRunDebug & codeRunOutput must also already resolved too
         console.log(codeRunDebug);
         console.log(codeRunOutput);
-        res.json({ codeRunDebug, codeRunOutput });
+        res.status(200).json({
+            status: true,
+            message: "Code Run Success!",
+            data: { codeRunDebug, codeRunOutput },
+        });
     });
 };
 
