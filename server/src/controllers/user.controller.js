@@ -10,3 +10,5 @@ const teacherBoard = async (req, res) => {
 const adminBoard = async (req, res) => {
     res.status(200).send("Admin Content.");
 };
+
+module.exports = { allAccess, studentBoard, teacherBoard, adminBoard };

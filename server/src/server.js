@@ -11,6 +11,7 @@ const PORT = process.env.PORT || 8000;
 
 app.use(cors());
 app.use(express.json());
+app.use("/api", require("./routes"));
 
 (async function () {
     try {
@@ -19,6 +20,7 @@ app.use(express.json());
             console.log(`🚀 Server is listening at http://localhost:${PORT}`);
         });
     } catch (error) {
+        console.log(error);
         console.log("❌❌❌ DATABASE FAILED TO CONNECT");
     }
 })();

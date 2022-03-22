@@ -1,4 +1,4 @@
-const { verifyRegister } = require("../middleware");
+const { verifyRegister } = require("../middlewares");
 const controller = require("../controllers/auth.controller");
 
 const authRoutes = (router) => {
