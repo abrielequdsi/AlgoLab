@@ -81,9 +81,13 @@ const login = async (req, res) => {
         }
 
         // Generate Token
-        const token = jwt.sign({ id: user.id, role: roles }, config.secret, {
-            expiresIn: 86400, // 24 hours
-        });
+        const token = jwt.sign(
+            { id: user.id, role: authorities },
+            config.secret,
+            {
+                expiresIn: 86400, // 24 hours
+            }
+        );
 
         res.status(200).json({
             status: true,
