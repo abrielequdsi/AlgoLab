@@ -58,7 +58,7 @@ const getAdmins = async (req, res) => {
         data: admins,
     });
 };
-const getAll = async (req, res) => {
+const getUsers = async (req, res) => {
     try {
         const users = await User.findAll({
             include: {
@@ -78,5 +78,41 @@ const getAll = async (req, res) => {
         res.status(500).send({ message: err.message });
     }
 };
+const getRoles = async (req, res) => {
+    try {
+        const roles = await Role.findAll();
+        res.status(200).json({
+            status: true,
+            message: "All roles",
+            data: roles,
+        });
+    } catch (err) {
+        res.status(500).send({ message: err.message });
+    }
+};
+const postRole = async (req, res) => {
+    try {
+        const roles = await Role.findAll();
+        const roleId = roles.length + 1;
+        const role = await Role.create({
+            id: roleId,
+            name: req.body.role,
+        });
+        res.status(200).json({
+            status: true,
+            message: "All roles",
+            data: role,
+        });
+    } catch (err) {
+        res.status(500).send({ message: err.message });
+    }
+};
 
-module.exports = { getStudents, getTeachers, getAdmins, getAll };
+module.exports = {
+    getStudents,
+    getTeachers,
+    getAdmins,
+    getUsers,
+    getRoles,
+    postRole,
+};
