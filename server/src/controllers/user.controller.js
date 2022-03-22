@@ -20,9 +20,8 @@ const getStudents = async (req, res) => {
             data: students,
         });
     } catch (err) {
-        res.status(500).send({ message: err.message });
+        res.status(500).send({ message: error.message });
     }
-    //     // res.status(200).send("Student Content.");
 };
 const getTeachers = async (req, res) => {
     const teachers = await User.findAll({
@@ -75,7 +74,7 @@ const getUsers = async (req, res) => {
             data: users,
         });
     } catch (err) {
-        res.status(500).send({ message: err.message });
+        res.status(500).send({ message: error.message });
     }
 };
 const getRoles = async (req, res) => {
@@ -87,7 +86,7 @@ const getRoles = async (req, res) => {
             data: roles,
         });
     } catch (err) {
-        res.status(500).send({ message: err.message });
+        res.status(500).send({ message: error.message });
     }
 };
 const postRole = async (req, res) => {
@@ -96,7 +95,7 @@ const postRole = async (req, res) => {
         const roleId = roles.length + 1;
         const role = await Role.create({
             id: roleId,
-            name: req.body.role,
+            name: req.body.name,
         });
         res.status(200).json({
             status: true,
@@ -104,7 +103,23 @@ const postRole = async (req, res) => {
             data: role,
         });
     } catch (err) {
-        res.status(500).send({ message: err.message });
+        res.status(500).send({ message: error.message });
+    }
+};
+const getUserSolvedQuestion = async (req, res) => {
+    try {
+        const userId = req.body.id;
+        const user = await User.findOne({
+            where: { id: userId },
+        });
+        console.log(user);
+        res.status(200).json({
+            status: true,
+            message: "Get user solved question",
+            data: user.solvedQuestion,
+        });
+    } catch (err) {
+        res.status(500).send({ message: error.message });
     }
 };
 
@@ -115,4 +130,5 @@ module.exports = {
     getUsers,
     getRoles,
     postRole,
+    getUserSolvedQuestion,
 };

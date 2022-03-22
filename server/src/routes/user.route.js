@@ -18,6 +18,7 @@ router.get("/admins", controller.getAdmins);
 router.get("/all", controller.getUsers);
 router.get("/roles", controller.getRoles);
 router.post("/postRole", controller.postRole);
+router.post("/getUserSolvedQuestion", controller.getUserSolvedQuestion);
 // router.get("/student", [authJwt.verifyToken], controller.studentBoard);
 // router.get(
 //     "/teacher",

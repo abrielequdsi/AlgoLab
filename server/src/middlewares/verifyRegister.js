@@ -1,9 +1,8 @@
 const db = require("../models");
-const ROLES = db.ROLES;
+const Role = db.role;
 const User = db.user;
 
 const checkDuplicateUsernameOrEmail = async (req, res, next) => {
-    console.log(req.body);
     // Username
     const user = await User.findOne({
         where: {
@@ -34,9 +33,17 @@ const checkDuplicateUsernameOrEmail = async (req, res, next) => {
 };
 
 const checkRolesExisted = async (req, res, next) => {
+    // NEED TO BE FIXED IN THE FUTURE
+    // NOW, ROLES IN ARRAY. ASSUMING USER CAN HAVE MULTIPLE ROLES
+    // CHANGE JUST ONE ROLE ONLY IN THE FUTURE
     if (req.body.roles) {
         for (let i = 0; i < req.body.roles.length; i++) {
-            if (!ROLES.includes(req.body.roles[i])) {
+            const role = await Role.findOne({
+                where: {
+                    name: req.body.roles[i],
+                },
+            });
+            if (!role) {
                 res.status(400).send({
                     message:
                         "Failed! Role does not exist = " + req.body.roles[i],

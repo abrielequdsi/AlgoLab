@@ -15,6 +15,7 @@ const register = async (req, res) => {
             username: req.body.username,
             email: req.body.email,
             password: bcrypt.hashSync(req.body.password, 8),
+            solvedQuestion: [],
         });
 
         // Check if roles are specified
@@ -44,7 +45,7 @@ const register = async (req, res) => {
             });
         }
     } catch (err) {
-        res.status(500).send({ message: err.message });
+        res.status(500).send({ message: error.message });
     }
 };
 
@@ -72,17 +73,17 @@ const login = async (req, res) => {
             });
         }
 
-        // Generate Token
-        const token = jwt.sign({ id: user.id }, config.secret, {
-            expiresIn: 86400, // 24 hours
-        });
-        const authorities = [];
-
         // Get Roles
+        const authorities = [];
         const roles = await user.getRoles();
         for (let i = 0; i < roles.length; i++) {
-            authorities.push("ROLE_" + roles[i].name.toUpperCase());
+            authorities.push(roles[i].name.toLowerCase());
         }
+
+        // Generate Token
+        const token = jwt.sign({ id: user.id, role: roles }, config.secret, {
+            expiresIn: 86400, // 24 hours
+        });
 
         res.status(200).json({
             status: true,
@@ -96,7 +97,7 @@ const login = async (req, res) => {
             },
         });
     } catch (error) {
-        res.status(500).send({ message: err.message });
+        res.status(500).send({ message: error.message });
     }
 };
 
