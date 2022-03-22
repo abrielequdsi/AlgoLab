@@ -14,6 +14,7 @@ const router = require("express").Router();
 // Routes
 router.get("/students", controller.getStudents);
 router.get("/teachers", controller.getTeachers);
+router.get("/admins", controller.getAdmins);
 router.get("/all", controller.getAll);
 // router.get("/student", [authJwt.verifyToken], controller.studentBoard);
 // router.get(
