@@ -89,7 +89,7 @@ function CodeEditor({ problemNumber, isLight }) {
                 } else {
                     setBoxColor("green");
                     axios
-                        .post(
+                        .put(
                             "http://localhost:8080/api/codeRun/solvedQuestion",
                             {
                                 id: id,
@@ -444,63 +444,3 @@ function CodeEditor({ problemNumber, isLight }) {
 }
 
 export default CodeEditor;
-
-// {codeRunOutput.map((result, i) => {
-//   return (
-//     <Accordion
-//       sx={{
-//         marginBottom: "1.1rem",
-//         border: "0",
-//         "&:before": {
-//           display: "none",
-//         },
-//         borderRadius: "4px",
-//       }}
-//     >
-//       <AccordionSummary
-//         expandIcon={<ExpandMoreIcon />}
-//         aria-controls="panel1a-content"
-//         id="panel1a-header"
-//       >
-//         {result === "True" ? (
-//           <TaskAltIcon sx={{ color: "#1ba94c" }} />
-//         ) : (
-//           <ErrorOutlineIcon sx={{ color: "red" }} />
-//         )}
-//         <Typography pl={1}>
-//           {" "}
-//           Test Case {i + 1}{" "}
-//           {result === "True" ? "passed" : "failed"}
-//         </Typography>
-//       </AccordionSummary>
-//       {/* INPUT, EXPECTED & USER OUTPUT */}
-//       <AccordionDetails>
-//         {["Input", "Expected Output", "Your Output"].map(
-//           (text, j) => {
-//             return (
-//               <>
-//                 <Typography sx={{ fontSize: "16px" }}>
-//                   {text}
-//                 </Typography>
-//                 <Box
-//                   sx={{
-//                     padding: "12px",
-//                     boxShadow:
-//                       "2px 2px 3px 1px rgb(0 0 0 / 40%), 0 0 3px 1px rgb(0 0 0 / 30%)",
-//                     borderRadius: "4px",
-//                     margin: "3px 0 15px 0",
-//                   }}
-//                   bgcolor={isLight ? "light" : "#282C34"}
-//                 >
-//                   {j===0 && }
-//                   {j===1 && }
-//                   {j===2 && }
-//                 </Box>
-//               </>
-//             );
-//           }
-//         )}
-//       </AccordionDetails>
-//     </Accordion>
-//   );
-// })}
