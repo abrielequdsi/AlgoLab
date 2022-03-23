@@ -56,17 +56,7 @@ function QuestionListItem({ title, category, difficulty, number, solved }) {
                             onClick={handleClick}
                             variant="outlined"
                             color="success"
-                            sx={{
-                                marginBottom: "1.1rem",
-                                border: "0",
-                                "&:before": {
-                                    display: "none",
-                                },
-                                borderRadius: "4px",
-                                my: 2,
-                                mx: 0,
-                                width: "100%",
-                            }}
+                            sx={{ my: 2, mx: 0, width: "100%" }}
                         >
                             &nbsp; Solved&nbsp;&nbsp;
                             <TaskAltIcon
