@@ -12,8 +12,6 @@ const initialState = user
     ? { isLoggedIn: true, user }
     : { isLoggedIn: false, user: null };
 
-console.log(initialState);
-
 export const auth = (state = initialState, action) => {
     const { type, payload } = action;
     switch (type) {
