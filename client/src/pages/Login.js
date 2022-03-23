@@ -19,6 +19,7 @@ import { history } from "../utils/history";
 // redux
 import { useDispatch, useSelector } from "react-redux";
 import { login } from "../redux/actions/auth";
+import axios from "axios";
 
 const theme = createTheme();
 
@@ -162,7 +163,11 @@ export default function Login() {
                         >
                             <Grid item sm={5}>
                                 <Button
-                                    href="https://uclapi.com/oauth/authorise?client_id=9984444452905842.9366660907312980&state=STATE"
+                                    onClick={() => {
+                                        axios.get(
+                                            "https://uclapi.com/oauth/authorise?client_id=9947826279026482.1823714591393847&state=1"
+                                        );
+                                    }}
                                     variant="contained"
                                     sx={{ padding: "2.5px 2.5px" }}
                                 >

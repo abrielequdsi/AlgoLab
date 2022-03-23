@@ -29,7 +29,7 @@ import axios from "axios";
 
 function getDirCount(r) {
     const filesCount = r.keys().length;
-    const lastItem = r.keys()[filesCount - 1];
+    const lastItem = r.keys()[filesCount - 2]; // Minus 2 bcs of the template.js
     const newLastItem = lastItem.replace("./", "");
     const slashLoc = newLastItem.indexOf("/");
     const questionNumber = newLastItem.slice(0, slashLoc);
@@ -38,8 +38,8 @@ function getDirCount(r) {
 
 function QuestionList() {
     const [roles, setRoles] = useState([]);
-    const [openStudents, setOpenStudents] = useState(true);
-    const [openTeachers, setOpenTeachers] = useState(true);
+    const [openStudents, setOpenStudents] = useState(false);
+    const [openTeachers, setOpenTeachers] = useState(false);
 
     const handleStudentsClick = () => {
         setOpenStudents(!openStudents);
@@ -86,7 +86,6 @@ function QuestionList() {
             .get("http://localhost:8080/api/user/teachers")
             .then((response) => {
                 setTeachers(response.data.data);
-                console.log(teachers);
             });
         axios
             .get("http://localhost:8080/api/user/students")
@@ -137,7 +136,9 @@ function QuestionList() {
                                         category={info.category}
                                         difficulty={info.difficulty}
                                         number={i + 1}
-                                        solved={solvedQuestion.includes(i + 1)}
+                                        solved={solvedQuestion.includes(
+                                            (i + 1).toString()
+                                        )}
                                     />
                                     <Divider />
                                 </Box>
@@ -258,7 +259,6 @@ function QuestionList() {
                             unmountOnExit
                         >
                             <List component="div" disablePadding>
-                                {console.log()}
                                 {students.map((student) => {
                                     return (
                                         <ListItemButton sx={{ pl: 4 }}>
@@ -311,6 +311,7 @@ function QuestionList() {
                                 fullWidth
                                 variant="contained"
                                 sx={{ fontWeight: "bold" }}
+                                href="/addQuestion"
                                 startIcon={
                                     <AddCircleOutlineIcon
                                         fontSize="large"
