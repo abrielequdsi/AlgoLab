@@ -9,7 +9,6 @@ const Op = db.Sequelize.Op;
 
 const register = async (req, res) => {
     try {
-        console.log(req.body);
         // Save User to Database
         const user = await User.create({
             username: req.body.username,
@@ -44,7 +43,7 @@ const register = async (req, res) => {
                 data: user,
             });
         }
-    } catch (err) {
+    } catch (error) {
         res.status(500).send({ message: error.message });
     }
 };
@@ -54,11 +53,11 @@ const login = async (req, res) => {
         // Check User
         const user = await User.findOne({
             where: {
-                username: req.body.username,
+                email: req.body.email,
             },
         });
         if (!user) {
-            return res.status(404).send({ message: "User Not found." });
+            return res.status(404).send({ message: "Email does not exist!" });
         }
 
         // Check Password
@@ -81,13 +80,9 @@ const login = async (req, res) => {
         }
 
         // Generate Token
-        const token = jwt.sign(
-            { id: user.id, role: authorities },
-            config.secret,
-            {
-                expiresIn: 86400, // 24 hours
-            }
-        );
+        const token = jwt.sign({ id: user.id }, config.secret, {
+            expiresIn: 86400, // 24 hours
+        });
 
         res.status(200).json({
             status: true,
