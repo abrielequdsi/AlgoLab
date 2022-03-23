@@ -19,7 +19,7 @@ const getStudents = async (req, res) => {
             message: "All students",
             data: students,
         });
-    } catch (err) {
+    } catch (error) {
         res.status(500).send({ message: error.message });
     }
 };
@@ -73,7 +73,7 @@ const getUsers = async (req, res) => {
             message: "All users",
             data: users,
         });
-    } catch (err) {
+    } catch (error) {
         res.status(500).send({ message: error.message });
     }
 };
@@ -85,7 +85,7 @@ const getRoles = async (req, res) => {
             message: "All roles",
             data: roles,
         });
-    } catch (err) {
+    } catch (error) {
         res.status(500).send({ message: error.message });
     }
 };
@@ -102,7 +102,7 @@ const postRole = async (req, res) => {
             message: "All roles",
             data: role,
         });
-    } catch (err) {
+    } catch (error) {
         res.status(500).send({ message: error.message });
     }
 };
@@ -112,13 +112,12 @@ const getUserSolvedQuestion = async (req, res) => {
         const user = await User.findOne({
             where: { id: userId },
         });
-        console.log(user);
         res.status(200).json({
             status: true,
             message: "Get user solved question",
             data: user.solvedQuestion,
         });
-    } catch (err) {
+    } catch (error) {
         res.status(500).send({ message: error.message });
     }
 };
