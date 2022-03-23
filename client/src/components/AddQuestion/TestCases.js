@@ -5,7 +5,7 @@ import TextField from "@mui/material/TextField";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
 
-export default function TestCases({ handleChange }) {
+export default function TestCases({ handleChange, values }) {
     const testCasesNum = 4;
     const grids = [];
     for (let i = 1; i <= testCasesNum; i++) {
@@ -14,6 +14,7 @@ export default function TestCases({ handleChange }) {
                 <TextField
                     required
                     onChange={handleChange("testCase" + i)}
+                    value={values["testCase" + i]}
                     id={"testCase" + i}
                     label={"Test Case " + i}
                     fullWidth
@@ -26,6 +27,7 @@ export default function TestCases({ handleChange }) {
                 <TextField
                     required
                     onChange={handleChange("testCaseAnswer" + i)}
+                    value={values["testCaseAnswer" + i]}
                     id={"testCaseAnswer" + i}
                     label={"Test Case Answer " + i}
                     fullWidth
@@ -41,6 +43,7 @@ export default function TestCases({ handleChange }) {
             <Grid item xs={12} md={6} id={i} key={i}>
                 <TextField
                     onChange={handleChange("testCase" + i)}
+                    value={values["testCase" + i]}
                     id={"testCase" + i}
                     label={"Test Case " + i}
                     fullWidth
@@ -52,6 +55,7 @@ export default function TestCases({ handleChange }) {
             <Grid item xs={12} md={6} id={i} key={i + 0.1}>
                 <TextField
                     onChange={handleChange("testCaseAnswer" + i)}
+                    value={values["testCaseAnswer" + i]}
                     id={"testCaseAnswer" + i}
                     label={"Test Case Answer " + i}
                     fullWidth

@@ -5,7 +5,7 @@ import TextField from "@mui/material/TextField";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
 
-export default function BasicInfo({ handleChange }) {
+export default function BasicInfo({ handleChange, values }) {
     return (
         <React.Fragment>
             <Typography variant="h6" gutterBottom>
@@ -15,6 +15,7 @@ export default function BasicInfo({ handleChange }) {
                 <Grid item xs={12}>
                     <TextField
                         onChange={handleChange("title")}
+                        value={values.title}
                         required
                         id="title"
                         name="title"
@@ -26,6 +27,7 @@ export default function BasicInfo({ handleChange }) {
                 <Grid item xs={12} sm={6}>
                     <TextField
                         onChange={handleChange("difficulty")}
+                        value={values.difficulty}
                         required
                         id="difficulty"
                         name="difficulty"
@@ -37,6 +39,7 @@ export default function BasicInfo({ handleChange }) {
                 <Grid item xs={12} sm={6}>
                     <TextField
                         onChange={handleChange("category")}
+                        value={values.category}
                         required
                         id="category"
                         name="category"
@@ -48,6 +51,7 @@ export default function BasicInfo({ handleChange }) {
                 <Grid item xs={12}>
                     <TextField
                         onChange={handleChange("questionPrompt")}
+                        value={values.questionPrompt}
                         multiline
                         rows={4}
                         required

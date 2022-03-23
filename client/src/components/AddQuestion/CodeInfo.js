@@ -5,7 +5,7 @@ import TextField from "@mui/material/TextField";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
 
-export default function CodeInfo({ handleChange }) {
+export default function CodeInfo({ handleChange, values }) {
     return (
         <React.Fragment>
             <Typography variant="h6" gutterBottom>
@@ -15,6 +15,7 @@ export default function CodeInfo({ handleChange }) {
                 <Grid item xs={12}>
                     <TextField
                         onChange={handleChange("solutionVideo")}
+                        value={values.solutionVideo}
                         required
                         id="solutionVideo"
                         name="solutionVideo"
@@ -27,6 +28,7 @@ export default function CodeInfo({ handleChange }) {
                 <Grid item xs={12}>
                     <TextField
                         onChange={handleChange("starterCode")}
+                        value={values.starterCode}
                         multiline
                         rows={4}
                         required
@@ -40,6 +42,7 @@ export default function CodeInfo({ handleChange }) {
                 <Grid item xs={12}>
                     <TextField
                         onChange={handleChange("solutionCode")}
+                        value={values.solutionCode}
                         multiline
                         rows={4}
                         required
