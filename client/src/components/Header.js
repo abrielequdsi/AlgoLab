@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useTheme } from "@mui/material/styles";
+import PlaylistAddCheckCircleIcon from "@mui/icons-material/PlaylistAddCheckCircle";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
@@ -170,6 +171,7 @@ function Header({ changeTheme, isLight }) {
                 }}
             >
                 <Toolbar sx={{ flexWrap: "wrap" }}>
+                    <PlaylistAddCheckCircleIcon sx={{ fontSize: "2rem" }} />
                     <Typography
                         variant="h6"
                         color="inherit"
@@ -181,7 +183,7 @@ function Header({ changeTheme, isLight }) {
                             fontSize: "24px",
                         }}
                     >
-                        DaPS Scenario
+                        Algo Lab
                     </Typography>
 
                     <Box sx={{ flexGrow: 1 }} />
