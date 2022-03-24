@@ -1,7 +1,7 @@
 const db = require("../models");
 const config = require("../configs/auth.config");
-var jwt = require("jsonwebtoken");
-var bcrypt = require("bcryptjs");
+const jwt = require("jsonwebtoken");
+const bcrypt = require("bcryptjs");
 
 const User = db.user;
 const Role = db.role;

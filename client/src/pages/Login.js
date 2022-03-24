@@ -74,6 +74,32 @@ export default function Login() {
         }
     };
 
+    const handleUCLAPIClick = async () => {
+        setLoading(true);
+
+        // const data = await fetch(
+        //     "https://uclapi.com/oauth/authorise?client_id=9984444452905842.9366660907312980&state=random-string",
+        //     {
+        //         method: "HEAD",
+        //         mode: "no-cors",
+        //     }
+        // );
+        // console.log(data);
+
+        // if (email && password) {
+        //     dispatch(login(email, password))
+        //         .then(() => {
+        //             history.push("/");
+        //             window.location.reload();
+        //         })
+        //         .catch(() => {
+        //             setLoading(false);
+        //         });
+        // } else {
+        //     setLoading(false);
+        // }
+    };
+
     if (isLoggedIn) {
         return <Navigate to="/" />;
     }
@@ -163,11 +189,8 @@ export default function Login() {
                         >
                             <Grid item sm={5}>
                                 <Button
-                                    onClick={() => {
-                                        axios.get(
-                                            "https://uclapi.com/oauth/authorise?client_id=9947826279026482.1823714591393847&state=1"
-                                        );
-                                    }}
+                                    // onClick={() => handleUCLAPIClick()}
+                                    href="https://uclapi.com/oauth/authorise?client_id=9984444452905842.9366660907312980&state=random-string"
                                     variant="contained"
                                     sx={{ padding: "2.5px 2.5px" }}
                                 >
