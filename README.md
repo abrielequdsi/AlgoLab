@@ -11,12 +11,16 @@
 
 # Unsplice.io
 
+<p>
     At UCL, first-year computer science students have labs every Wednesday. In the labs, we have to work on algorithm questions. We have to set up our own IDE environment, Create our own test case, and always wonder this is the correct answer to the question. Wondering if there is any test case that will break my solution.
-
+</p>
+<p>
     The TAs have a hard time helping the student when it comes to assisting them in debugging their bugs. They need to see line by line code that will. Try to wonder in what way they can help the students to improve their solutions. For lab groups that have Online meetings is even harder for them to interact with the student. Sharing their screen to see students’ mistakes is so much of a hassle and hardly implemented.
-
+</p>
+<p>
     This app will help students and TAs to overcome all of the problems mentioned by providing a much more efficient way to help students to learn algorithms by providing them online IDE, visualiser, test cases, video explanation, and efficient solutions.
 
+</p>
 <!-- ABOUT THE PROJECT -->
 
 # Demo
@@ -37,9 +41,7 @@ It will check and sanitised the input. The email must be a valid email & passwor
 
 It will also check if the email you want to register is already in the database or not. No duplicate.
 
-If successful.
-
-It will redirect to the login page.
+If successful, it will redirect to the login page.
 
 ![screencapture-localhost-3000-register-2022-03-24-14_07_58.png](./readme-img/Image_4.png)
 
@@ -55,9 +57,7 @@ If successful it will redirect you to the main page.
 
 ![screencapture-localhost-3000-questions-2022-03-24-14_06_23.png](./readme-img/Image_7.png)
 
-You can see all of the students that registered in the module (app).
-
-And their progress of how many questions they have solved so far.
+You can see all of the students that registered in the module (app) and their progress of how many questions they have solved so far.
 
 ![screencapture-localhost-3000-questions-2022-03-24-14_09_01.png](./readme-img/Image_8.png)
 
