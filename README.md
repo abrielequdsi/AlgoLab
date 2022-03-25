@@ -9,7 +9,7 @@
   </a>
   </div>
 
-# Unsplice.io
+# Algo Lab
 
 <p>
     At UCL, first-year computer science students have labs every Wednesday. In the labs, we have to work on algorithm questions. We have to set up our own IDE environment, Create our own test case, and always wonder this is the correct answer to the question. Wondering if there is any test case that will break my solution.
