@@ -88,17 +88,16 @@ function CodeEditor({ problemNumber, isLight }) {
                     setBoxColor("red");
                 } else {
                     setBoxColor("green");
-                    axios
-                        .put(
-                            "http://localhost:8080/api/codeRun/solvedQuestion",
-                            {
-                                id: id,
-                                solvedQuestionNum: problemNumber,
-                            }
-                        )
-                        .then((res) => {
-                            console.log(res);
-                        });
+                    axios.put(
+                        "http://localhost:8080/api/codeRun/solvedQuestion",
+                        {
+                            id: id,
+                            solvedQuestionNum: problemNumber,
+                        }
+                    );
+                    // .then((res) => {
+                    //     console.log(res);
+                    // });
                 }
             });
     };
@@ -144,7 +143,7 @@ function CodeEditor({ problemNumber, isLight }) {
                             aria-label="basic tabs example"
                         >
                             <Tab label={<strong>Run Code Result</strong>} />
-                            <Tab label={<strong>Raw Output</strong>} />
+                            <Tab label={<strong>Print Output</strong>} />
                             <Button
                                 onClick={handleClick}
                                 variant="contained"
@@ -183,7 +182,7 @@ function CodeEditor({ problemNumber, isLight }) {
                                     <Box
                                         sx={{
                                             padding: 1.5,
-                                            height: "24.9vh",
+                                            height: "27.4vh",
                                             display: "flex",
                                             justifyContent: "center",
                                             alignItems: "center",
@@ -203,7 +202,7 @@ function CodeEditor({ problemNumber, isLight }) {
                                     <Box
                                         sx={{
                                             padding: 1.5,
-                                            height: "24.9vh",
+                                            height: "27.4vh",
                                         }}
                                     >
                                         <Typography
@@ -330,7 +329,6 @@ function CodeEditor({ problemNumber, isLight }) {
                                                                                     );
                                                                                 }
                                                                             )}
-                                                                        {console.log()}
                                                                         {j ===
                                                                             1 &&
                                                                             testCase[
@@ -376,7 +374,7 @@ function CodeEditor({ problemNumber, isLight }) {
                                     <Box
                                         sx={{
                                             padding: 1.5,
-                                            height: "24.9vh",
+                                            height: "27.4vh",
                                             display: "flex",
                                             justifyContent: "center",
                                             alignItems: "center",
@@ -396,7 +394,7 @@ function CodeEditor({ problemNumber, isLight }) {
                                     <Box
                                         sx={{
                                             padding: 1.5,
-                                            height: "24.9vh",
+                                            height: "27.4vh",
                                         }}
                                     >
                                         {testCases.map((testCase, i) => {
@@ -417,7 +415,7 @@ function CodeEditor({ problemNumber, isLight }) {
                                                 >
                                                     ---------- Test Case {i + 1}{" "}
                                                     ----------
-                                                    {codeRunDebug[i].map(
+                                                    {codeRunDebug[i]?.map(
                                                         (print) => {
                                                             return (
                                                                 <Typography

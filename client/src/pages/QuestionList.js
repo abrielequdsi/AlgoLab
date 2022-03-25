@@ -101,7 +101,7 @@ function QuestionList() {
     }, []);
 
     return (
-        <Container maxWidth="lg">
+        <Container maxWidth="lg" sx={{ minHeight: "90.3vh" }}>
             <Grid container sx={{ mt: 3, mb: 3 }}>
                 <Box sx={{ width: "100%" }}>
                     {" "}
@@ -164,7 +164,7 @@ function QuestionList() {
                             <Divider sx={{ mt: 1.5, mb: 1.5 }} />
                             <Typography variant="body2" sx={{ mb: 1 }}>
                                 <strong>Email:</strong>
-                                <span>&nbsp; </span>module.tutor@ucl.ac.uk
+                                <span>&nbsp; </span>owen.willis@ucl.ac.uk
                             </Typography>
                             <Typography variant="body2" sx={{ mb: 1 }}>
                                 <strong>Office:</strong>

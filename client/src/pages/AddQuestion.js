@@ -169,7 +169,7 @@ function AddQuestion() {
     };
 
     return (
-        <Container maxWidth="lg">
+        <Container maxWidth="lg" sx={{ minHeight: "90.3vh" }}>
             <Grid container sx={{ mt: 3, mb: 3 }}>
                 <Box sx={{ width: "100%" }}>
                     {" "}

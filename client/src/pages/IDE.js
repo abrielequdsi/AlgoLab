@@ -7,21 +7,18 @@ import CodeEditor from "../components/IDE/CodeEditor";
 import { useParams } from "react-router-dom";
 
 function IDE({ isLight }) {
-  const { number } = useParams();
+    const { number } = useParams();
 
-  return (
-    <Grid container spacing={2}>
-      <Grid item xs={12} md={6}>
-        <Prompt problemNumber={number} />
-      </Grid>
-      <Grid item xs={12} md={6}>
-        <CodeEditor problemNumber={number} isLight={isLight} />
-      </Grid>
-      {/* <Grid item xs={12} md={6}>
-        <TestCase problemNumber={number} />
-      </Grid> */}
-    </Grid>
-  );
+    return (
+        <Grid container spacing={2}>
+            <Grid item xs={12} md={6}>
+                <Prompt problemNumber={number} />
+            </Grid>
+            <Grid item xs={12} md={6}>
+                <CodeEditor problemNumber={number} isLight={isLight} />
+            </Grid>
+        </Grid>
+    );
 }
 
 export default IDE;

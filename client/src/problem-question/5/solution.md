@@ -3,8 +3,10 @@
 ```
 import sys;
 
-
 def quickSort(array):
+  return quickSortHelper(array, 0, len(array)-1)
+
+def quickSortHelper(array, low, high):
   if len(array) == 1:
     return array
   if low < high:
@@ -15,8 +17,10 @@ def quickSort(array):
 
     # Separately sort elements before
     # partition and after partition
-    quickSort(array, low, pi-1)
-    quickSort(array, pi+1, high)
+    quickSortHelper(array, low, pi-1)
+    quickSortHelper(array, pi+1, high)
+
+  return array
 
 def partition(array, low, high):
   i = (low-1)         # index of smaller element
